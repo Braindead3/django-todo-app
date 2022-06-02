@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete note</title>
+</head>
+<body>
+<a href="{% url 'todo-home' %} ">Go back</a>
+<form method="POST" action="">
+    {% csrf_token %}
+    <p>Are you sure to delete this task? "{{ object }}"</p>
+    <input type="submit" value="Delete">
+</form>
+</body>
+</html>

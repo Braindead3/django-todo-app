@@ -8,6 +8,10 @@ class Note(models.Model):
     content = models.TextField()
     creation_time = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    complete = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ['complete']

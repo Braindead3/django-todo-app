@@ -1,0 +1,17 @@
+{% extends "todo/base.html" %}
+{% block content %}
+<a href="{% url 'note-create' %}">Add note</a>
+<form method="GET">
+    <input type="text" name="search-area" value="{{ search_input }}">
+    <input type="submit" value="Search">
+</form>
+{% for note in object_list %}
+    <h1>{{ note.title }}</h1>
+    <h2>{{ note.content }}</h2>
+    <a href="{% url 'note' note.id %}">View</a>
+    <a href="{% url 'note-update' note.id %}">Update Note</a>
+    <a href="{% url 'note-delete' note.id %}">Delete Note</a>
+{% empty %}
+<h1>No items in the list</h1>
+{% endfor %}
+{% endblock content %}
