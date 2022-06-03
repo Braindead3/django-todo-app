@@ -1,17 +1,40 @@
 {% extends "todo/base.html" %}
 {% block content %}
-<a href="{% url 'note-create' %}">Add note</a>
-<form method="GET">
-    <input type="text" name="search-area" value="{{ search_input }}">
-    <input type="submit" value="Search">
+<form class="d-flex" method="GET">
+    <input type="text" class="form-control me-2" placeholder="Search" aria-label="Search" name="search-area"
+        value="{{ search_input }}">
+    <input class="btn bg-light " type="submit" value="Search">
 </form>
-{% for note in object_list %}
-    <h1>{{ note.title }}</h1>
-    <h2>{{ note.content }}</h2>
-    <a href="{% url 'note' note.id %}">View</a>
-    <a href="{% url 'note-update' note.id %}">Update Note</a>
-    <a href="{% url 'note-delete' note.id %}">Delete Note</a>
-{% empty %}
-<h1>No items in the list</h1>
-{% endfor %}
+<button type="button" class="mt-3 mb-3 btn btn-outline-light"><a class="text-white " style="text-decoration:none"
+        href="{% url 'note-create' %}">Add note</a></button>
+
+
+<ul class="list-group">
+
+    {% for note in object_list %}
+    <li class="list-group-item" style="background: rgba(77, 73, 73, 0.5);">
+        <div  class="row border rounded-3 border-1">
+            <div class="col-10">
+                <h1  class="text-white" >{{ note.title }}</h1>
+                <h2  class="text-white">{{ note.content }}</h2>
+            </div>
+            <div class="col-2 ">
+                <button style="width: 100%; background:#8ba3c5;" type="button" class="mt-3 mb-3 btn  btn-outline-dark d-block ">
+                    <a href="{% url 'note' note.id %}"  style="text-decoration:none" class="text-black">View</a>
+                </button>
+                <button style="width: 100%; background: #96c583" type="button" class="mt-3 mb-3 btn  btn-outline-dark d-block ">
+                    <a href="{% url 'note-update' note.id %}"  style="text-decoration:none" class="text-black">Update Note</a>
+                </button>
+                <button style="width: 100%; background: #d7c3d4" type="button" class="mt-3 mb-3 btn  btn-outline-dark d-block">
+                    <a href="{% url 'note-delete' note.id %}"  style="text-decoration:none" class="text-black">Delete Note</a>
+                </button>
+
+            </div>
+
+        </div>
+    </li>
+    {% empty %}
+    <h1 class="text-white">No items in the list</h1>
+    {% endfor %}
+</ul>
 {% endblock content %}
