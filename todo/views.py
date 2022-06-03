@@ -19,7 +19,8 @@ class NoteList(ListView):
         search_input = self.request.GET.get('search-area') or ''
         print(search_input)
         if search_input:
-            context['object_list'] = context['object_list'].filter(title__icontains=search_input)
+            if context['object_list']:
+                context['object_list'] = context['object_list'].filter(title__icontains=search_input)
 
         context['search_input'] = search_input
 
