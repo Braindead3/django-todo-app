@@ -1,5 +1,4 @@
 from .models import Note, Group
-from users.models import UserAccount
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
