@@ -1,4 +1,4 @@
-from .models import Note
+from .models import Note, Group
 from users.models import UserAccount
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
@@ -17,11 +17,17 @@ class NoteList(ListView):
         context = super().get_context_data(**kwargs)
 
         search_input = self.request.GET.get('search-area') or ''
-        print(search_input)
         if search_input:
             if context['object_list']:
                 context['object_list'] = context['object_list'].filter(title__icontains=search_input)
 
+        group = self.kwargs.get('group_id')
+        if group:
+            if context['object_list']:
+                context['object_list'] = context['object_list'].filter(group=group)
+
+        context['all_groups'] = Group.objects.all()
+        context['selected_group'] = context['all_groups'].filter(id=group).first()
         context['search_input'] = search_input
 
         return context
@@ -33,7 +39,7 @@ class NoteDetail(LoginRequiredMixin, DetailView):
 
 class NoteCreate(LoginRequiredMixin, CreateView):
     model = Note
-    fields = ['title', 'content', 'complete']
+    fields = ['title', 'content', 'complete', 'group']
     success_url = reverse_lazy('todo-home')
 
     def form_valid(self, form):
@@ -49,4 +55,21 @@ class NoteUpdate(LoginRequiredMixin, UpdateView):
 
 class NoteDelete(LoginRequiredMixin, DeleteView):
     model = Note
+    success_url = reverse_lazy('todo-home')
+
+
+class GroupCreate(LoginRequiredMixin, CreateView):
+    model = Group
+    fields = ['title']
+    success_url = reverse_lazy('todo-home')
+
+
+class GroupUpdate(LoginRequiredMixin, UpdateView):
+    model = Group
+    fields = ['title']
+    success_url = reverse_lazy('todo-home')
+
+
+class GroupDelete(LoginRequiredMixin, DeleteView):
+    model = Group
     success_url = reverse_lazy('todo-home')

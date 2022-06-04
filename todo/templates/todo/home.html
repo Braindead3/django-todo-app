@@ -9,7 +9,17 @@
         href="{% url 'note-create' %}">Add note</a></button>
 
 
+{% for group in all_groups %}
+    <a href="{% url 'todo-home-group' group.id %}">{{ group.title }}</a>
+{% empty %}
+    <h1 class="text-white">No items in the list</h1>
+{% endfor %}
+<a href="{% url 'todo-home' %}">All groups</a>
+
 <ul class="list-group">
+    {% if selected_group %}
+        <h1>Group:{{ selected_group.title }}</h1>
+    {% endif %}
 
     {% for note in object_list %}
     <li class="list-group-item" style="background: rgba(77, 73, 73, 0.5);">
@@ -34,7 +44,7 @@
         </div>
     </li>
     {% empty %}
-    <h1 class="text-white">No items in the list</h1>
+        <h1 class="text-white">No items in the list</h1>
     {% endfor %}
 </ul>
 {% endblock content %}

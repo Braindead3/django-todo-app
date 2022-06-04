@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10272496-871c-427a-8a46-1f1c9e6f7204" name="Changes" comment="html ref">
+    <list default="true" id="10272496-871c-427a-8a46-1f1c9e6f7204" name="Changes" comment="add group model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/todo/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/todo/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/todo/note_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/todo/note_confirm_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/todo/note_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/todo/note_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +28,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="29o4xEybv9hd0egAhF3w40ovCFI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -95,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654188019173</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add group model">
+      <created>1654292487228</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1654292487228</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,6 +132,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="add custom user model" />
     <MESSAGE value="html ref" />
-    <option name="LAST_COMMIT_MESSAGE" value="html ref" />
+    <MESSAGE value="add group model" />
+    <option name="LAST_COMMIT_MESSAGE" value="add group model" />
   </component>
 </project>
