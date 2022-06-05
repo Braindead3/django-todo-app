@@ -20,7 +20,7 @@ class NoteList(ListView):
             if context['object_list']:
                 context['object_list'] = context['object_list'].filter(title__icontains=search_input)
 
-        group = self.kwargs.get('group_id') or ''
+        group = self.kwargs.get('group_id') or None
         if group:
             if context['object_list']:
                 context['object_list'] = context['object_list'].filter(group=group)
